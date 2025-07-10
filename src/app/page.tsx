@@ -12,7 +12,7 @@ export default function Home() {
                                         flex flex-col items-center は「縦並びのFlexboxで、子要素を中央揃えにする」*/}
                                 <section className="w-full md:w-2/3 flex flex-col items-center px-3">
                                         <ArticleList />
-                                        <div className="flex items-center py-8">
+                                        {/* <div className="flex items-center py-8">
                                                 <a
                                                         href="#"
                                                         className="h-10 w-10 bg-blue-800 hover:bg-blue-600 font-semibold text-white text-sm flex items-center justify-center"
@@ -31,7 +31,7 @@ export default function Home() {
                                                 >
                                                         Next <i className="fas fa-arrow-right ml-2"></i>
                                                 </a>
-                                        </div>
+                                        </div> */}
                                 </section>
 
                                 {/* 1/3のサイズ */}

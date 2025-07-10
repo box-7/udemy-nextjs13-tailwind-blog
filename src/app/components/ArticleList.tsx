@@ -5,31 +5,69 @@ import Image from 'next/image'
 const ArticleList = () => {
         return (
                 <div>
-                        <article>
-                                <Link href="#">
-
+                        <article className="flex flex-col shadow my-4">
+                                <Link href="#" className="hover:opacity-75">
                                         <Image
                                                 // src="https://source.unsplash.com/collection/1346951/1000x500?sig=1"
-                                                src="https://placehold.jp/150x150.png"
+                                                // src="https://placehold.jp/150x150.png"
+                                                // src="https://picsum.photos/id/237/200/300"
+                                                src="https://picsum.photos/seed/picsum/1280/300"
                                                 alt=""
                                                 width={1280}
                                                 height={300}
+                                                className="object-cover"
                                         />
                                 </Link>
-                                <div>
-                                        <Link href="#">Technology</Link>
-                                        <Link href="#">Next.jsの勉強中</Link>
-                                        <p>By shindode, Published on 2023/07/15</p>
-                                        <Link href="#" className="pb-6">
+                                <div className="bg-white flex flex-col justify-start p-6">
+
+                                        <Link href="#"
+                                                className="text-blue-700 text-sm font-bold uppercase pb-4"
+                                        >Technology</Link>
+                                        <Link href="#"
+                                                className="text-slate-900 text-3xl font-bold hover:text-gray-700 pb-4"
+                                        >Next.jsの勉強中</Link>
+
+                                        <p className="text-sm pb-3 text-slate-900">Published on 2023/07/15</p>
+                                        <Link href="#" className="text-slate-900 pb-6">
                                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
                                                 quis porta dui. Ut eu iaculis massa. Sed ornare ligula lacus, quis
                                                 iaculis dui porta volutpat. In sit amet posuere magna..
                                         </Link>
-                                        <Link href="#">続きを読む</Link>
+                                        <Link href="#" className="text-pink-800 hover:text-black">続きを読む</Link>
                                 </div>
                         </article>
 
-                        ArticleList</div>
+                        <article className="flex flex-col shadow my-4">
+                                <Link href="#" className="hover:opacity-75">
+                                        <Image
+                                                // src="https://source.unsplash.com/collection/1346951/1000x500?sig=1"
+                                                // src="https://placehold.jp/150x150.png"
+                                                src="https://picsum.photos/1280/300/?blur"
+                                                alt=""
+                                                width={1280}
+                                                height={300}
+                                                className="object-cover"
+                                        />
+                                </Link>
+                                <div className="bg-white flex flex-col justify-start p-6">
+
+                                        <Link href="#"
+                                                className="text-blue-700 text-sm font-bold uppercase pb-4"
+                                        >Technology</Link>
+                                        <Link href="#"
+                                                className="text-slate-900 text-3xl font-bold hover:text-gray-700 pb-4"
+                                        >Next.jsの勉強中</Link>
+
+                                        <p className="text-sm pb-3 text-slate-900">Published on 2023/07/15</p>
+                                        <Link href="#" className="text-slate-900 pb-6">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+                                                quis porta dui. Ut eu iaculis massa. Sed ornare ligula lacus, quis
+                                                iaculis dui porta volutpat. In sit amet posuere magna..
+                                        </Link>
+                                        <Link href="#" className="text-pink-800 hover:text-black">続きを読む</Link>
+                                </div>
+                        </article>
+                </div>
         )
 }
 
