@@ -8,6 +8,10 @@ export const getAllArticles = async(): Promise<Article[]> => {
         if (!res.ok) {
                 throw new Error("Failed to fetch articles");
         }
+
+        // resolveは「このPromiseは終わりました」と通知するための関数
+        await new Promise(resolve => setTimeout(resolve, 1000));
+
         const artilcles = await res.json();
         return artilcles;
 }
