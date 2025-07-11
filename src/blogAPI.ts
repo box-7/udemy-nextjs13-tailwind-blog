@@ -1,7 +1,4 @@
-
-
 import { Article } from "./types";
-
 
 export const getAllArticles = async(): Promise<Article[]> => {
         // SSR（Server Side Rendering）
