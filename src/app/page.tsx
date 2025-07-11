@@ -1,17 +1,22 @@
+// "use client"; // クライアントサイドで実行されるようになる
+
 // import Image from "next/image";
+import { getAllArticles } from "@/blogAPI";
 import ArticleList from "./components/ArticleList";
 
-export default function Home() {
+export default async function Home() {
+        const articles = await getAllArticles();
+
+        // console.log(articles); // ブラウザではなく、ローカルサーバーで確認できる
+        // "use client"; を使うと、ブラウザで確認できる
         return (
                 // {/* <div>記事投稿</div> */ }
-
                 <>
-
                         < div className="md:flex" >
-                                {/* 横幅の2/3のサイズ 
+                                {/* 横幅の2/3のサイズ
                                         flex flex-col items-center は「縦並びのFlexboxで、子要素を中央揃えにする」*/}
                                 <section className="w-full md:w-2/3 flex flex-col items-center px-3">
-                                        <ArticleList />
+                                        <ArticleList articles={articles} />
                                         {/* <div className="flex items-center py-8">
                                                 <a
                                                         href="#"
