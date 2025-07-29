@@ -3,27 +3,33 @@
 // f: Function（関数）
 // c: Component（コンポーネント）
 // e: Export（エクスポート）
+
 import Image from "next/image";
 import React from 'react'
 import { getDetailArticle } from "@/blogAPI";
 
 const Article = async ({ params }: { params: { id: string } }) => {
         const detailArticle = await getDetailArticle(params.id);
-        console.log("detailArticle", detailArticle);
+
+        // copilotのアドバイスだが直らず
+        // const Article = async (props: { params: { id: string } }) => {
+        // const { params } = await props;
+        // const detailArticle = await getDetailArticle(params.id);
         return (
-        <div className="max-w-3xl mx-auto p-5">
-                <Image
-                        src="https://picsum.photos/seed/picsum/1280/300"
-                        alt=""
-                        width={1280}
-                        height={300}
-                        className="object-cover"
-                />
-                <h1 className="text-4xl text-center mb-10 mt-10">タイトル</h1>
-                <div className="text-lg leading-relaxed text-justify">
-                        <p>本文</p>
+                <div className="max-w-3xl mx-auto p-5">
+                        <Image
+                                src={`https://picsum.photos/seed/${detailArticle.id}/1000/500`}
+                                alt=""
+                                width={1280}
+                                height={300}
+                                className="object-cover"
+                                priority
+                        />
+                        <h1 className="text-4xl text-center mb-10 mt-10">{detailArticle.title}</h1>
+                        <div className="text-lg leading-relaxed text-justify">
+                                <p>{detailArticle.content}</p>
+                        </div>
                 </div>
-        </div>
         );
 }
 
