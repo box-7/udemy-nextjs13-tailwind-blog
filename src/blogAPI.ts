@@ -18,11 +18,11 @@ export const getAllArticles = async (): Promise<Article[]> => {
 }
 
 export const getDetailArticle = async (id: string): Promise<Article> => {
-        // ISR（Incremental Static Regeneration）
-        // 静的生成（SSG）と動的生成（SSR）の中間のような仕組み
-        // ビルド時に静的HTMLを生成し、一定時間ごとにサーバー側で再生成できる
-        // ユーザーは高速な静的ページを見られつつ、定期的に最新データに自動更新される
         const res = await fetch(`http://localhost:3001/posts/${id}`, {
+                // ISR（Incremental Static Regeneration）
+                // 静的生成（SSG）と動的生成（SSR）の中間のような仕組み
+                // ビルド時に静的HTMLを生成し、一定時間ごとにサーバー側で再生成できる
+                // ユーザーは高速な静的ページを見られつつ、定期的に最新データに自動更新される
                 next: { revalidate: 60 }, // 60秒ごとに再生成
         });
 
@@ -39,6 +39,48 @@ export const getDetailArticle = async (id: string): Promise<Article> => {
         return artilcle;
 }
 
+export const createArticle = async (
+        id: string,
+        title: string,
+        content: string,
+): Promise<Article> => {
+        const currentDatetime = new Date().toISOString();
+        const res = await fetch(`http://localhost:3001/posts`,
+                {
+                        method: "POST",
+                        headers: {
+                                "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({ id, title, content, createdAt: currentDatetime }),
+                }
+        );
+
+        if (!res.ok) {
+                throw new Error("エラーが発生しました。");
+        }
+        // resolveは「このPromiseは終わりました」と通知するための関数
+        await new Promise(resolve => setTimeout(resolve, 1000));
+
+        const newArtilcle = await res.json();
+        return newArtilcle;
+}
+
+export const deleteArticle = async (id: string): Promise<Article> => {
+        const res = await fetch(`http://localhost:3001/posts/${id}`,
+                {
+                        method: "DELETE",
+                }
+        );
+
+        if (!res.ok) {
+                throw new Error("エラーが発生しました。");
+        }
+        // resolveは「このPromiseは終わりました」と通知するための関数
+        await new Promise(resolve => setTimeout(resolve, 1000));
+
+        const deleteArtilcle = await res.json();
+        return deleteArtilcle;
+}
 
 // CSR（Client Side Rendering）
 // ブラウザ側（クライアント）でデータを取得して描画する。
