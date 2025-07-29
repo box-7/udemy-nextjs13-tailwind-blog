@@ -1,18 +1,26 @@
 // "use client"; // クライアントサイドで実行されるようになる
 
 // import Image from "next/image";
-import { getAllArticles } from "@/blogAPI";
+// import { getAllArticles } from "@/blogAPI";
 import ArticleList from "./components/ArticleList";
 
+// import { supabase } from "@/utils/supabaseClient";
+
 export default async function Home() {
-        const articles = await getAllArticles();
+        const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
+        const res = await fetch(`${API_URL}/api`, { cache: "no-store" });
+        if (!res.ok) {
+                throw new Error("Failed to fetch articles");
+        }
+        const articles = await res.json();
 
         // console.log(articles); // ブラウザではなく、ローカルサーバーで確認できる
         // "use client"; を使うと、ブラウザで確認できる
         return (
                 // {/* <div>記事投稿</div> */ }
                 <>
-                        < div className="md:flex" >
+                        <div className="md:flex" >
                                 {/* 横幅の2/3のサイズ
                                         flex flex-col items-center は「縦並びのFlexboxで、子要素を中央揃えにする」*/}
                                 <section className="w-full md:w-2/3 flex flex-col items-center px-3">
