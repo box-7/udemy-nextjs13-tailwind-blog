@@ -17,7 +17,7 @@ const Article = async ({ params }: { params: { id: string } }) => {
         // revalidate: 60なら、60秒間は全員同じ内容
         // 60秒経過後、最初のリクエスト時に新しいデータで再生成される
         // ページを静的に生成しつつ、一定時間ごとにサーバー側で自動的に再生成できる
-        const res = await fetch(`${API_URL}/api/${params.id}`,
+        const res = await fetch(`${API_URL}/api/blog/${params.id}`,
                 { next: { revalidate: 60 } }
         );
         if (!res.ok) {

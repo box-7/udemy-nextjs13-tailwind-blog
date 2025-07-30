@@ -19,7 +19,8 @@ const CreateBlogPage = () => {
                 // ここでフォームのデータを処理する
                 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
-                await fetch(`${API_URL}/api/create`, {
+                // await fetch(`${API_URL}/api/create`, {
+                await fetch(`${API_URL}/api/blog`, {
                         method: "POST",
                         headers: {
                                 "Content-Type": "application/json",
