@@ -1,34 +1,45 @@
 {
-  "posts": [
-    {
-      "id": "next.js13-udemy",
-      "title": "Next.js 13とTailwind CSSをudemyで学ぶ",
-      "content": "Next.js 13とTailwind CSSをudemyで学ぶ内容をまとめたブログです。",
-      "createdAt": "2023/10/01"
-    },
-    {
-      "id": "json-server",
-      "title": "JSONサーバー",
-      "content": "JSONサーバーは、フロントエンド開発時に手軽にモックAPIを構築できるツールです。特にNext.jsやReactなどのモダンなフレームワークと組み合わせることで、バックエンドが未完成の段階でもAPI通信の実装やテストが可能になります。設定ファイルとしてJSONを用意するだけで、RESTfulなAPIエンドポイントが自動生成されるため、開発効率が大幅に向上します。また、データの追加・更新・削除も簡単に行えるため、実際のAPI開発前のプロトタイピングやフロントエンドの動作確認に最適です。さらに、json-serverはカスタマイズ性も高く、ミドルウェアを追加したり、ルーティングを柔軟に設定したりすることもできます。これにより、より実際のAPIに近い挙動を再現しながら開発を進めることができます。",
-      "createdAt": "2023/12/01"
-    },
-    {
-      "id": "revalidate-next.js13",
-      "title": "データの再検証",
-      "content": "データ取得はあらゆるアプリケーションの中核を成す部分です。このページでは、ReactとNext.jsでデータを取得、キャッシュ、再検証する方法について説明します。",
-      "createdAt": "2024/03/01"
-    },
-    {
-      "id": "test1",
-      "title": "test1",
-      "content": "test1",
-      "createdAt": "2025-07-29T08:16:53.193Z"
-    },
-    {
-      "id": "test2",
-      "title": "test2",
-      "content": "test2",
-      "createdAt": "2025-07-29T08:19:43.359Z"
-    }
-  ]
+        "posts": [
+                {
+                        "id": "next.js13-udemy",
+                        "title": "Next.js 13とTailwind CSSをudemyで学ぶ",
+                        "content": "Next.js 13とTailwind CSSをudemyで学ぶ内容をまとめたブログです。",
+                        "createdAt": "2023/10/01"
+                },
+                {
+                        "id": "next.js13-udemy",
+
+
+                        "title": "仕組みコマンド例でjson-serverを起動posts.jsonの posts 配列が/",
+                        "content": "postsというAPIエンドポイントとして公開される",
+                        "content1234567890コメント用": "フロントエンドやブラウザからhttp: //localhost:3001/posts にアクセスするとJSONデータが返る",
+
+
+                        "createdAt": "2023/10/01"
+                },
+                {
+                        "id": "json-server",
+                        "title": "JSONサーバー",
+                        "content": "JSONサーバーは、フロントエンド開発時に手軽にモックAPIを構築できるツールです。特にNext.jsやReactなどのモダンなフレームワークと組み合わせることで、バックエンドが未完成の段階でもAPI通信の実装やテストが可能になります。設定ファイルとしてJSONを用意するだけで、RESTfulなAPIエンドポイントが自動生成されるため、開発効率が大幅に向上します。また、データの追加・更新・削除も簡単に行えるため、実際のAPI開発前のプロトタイピングやフロントエンドの動作確認に最適です。さらに、json-serverはカスタマイズ性も高く、ミドルウェアを追加したり、ルーティングを柔軟に設定したりすることもできます。これにより、より実際のAPIに近い挙動を再現しながら開発を進めることができます。",
+                        "createdAt": "2023/12/01"
+                },
+                {
+                        "id": "revalidate-next.js13",
+                        "title": "データの再検証",
+                        "content": "データ取得はあらゆるアプリケーションの中核を成す部分です。このページでは、ReactとNext.jsでデータを取得、キャッシュ、再検証する方法について説明します。",
+                        "createdAt": "2024/03/01"
+                },
+                {
+                        "id": "test1",
+                        "title": "test1",
+                        "content": "test1",
+                        "createdAt": "2025-07-29T08:16:53.193Z"
+                },
+                {
+                        "id": "test2",
+                        "title": "test2",
+                        "content": "test2",
+                        "createdAt": "2025-07-29T08:19:43.359Z"
+                }
+        ]
 }

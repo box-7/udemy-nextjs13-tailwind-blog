@@ -1,6 +1,20 @@
 import { notFound } from "next/navigation";
 import { Article } from "./types";
 
+
+
+// http://localhost:3001/posts で呼べる理由は、
+// json-serverが posts.json をもとにREST APIサーバーを自動生成するから
+
+// 仕組み
+// コマンド例
+// npx json-server --watch src/data/posts.json --port 3001 でjson-serverを起動
+// posts.jsonの "posts" 配列が /posts というAPIエンドポイントとして公開される
+
+// フロントエンドやブラウザから http://localhost:3001/posts にアクセスするとJSONデータが返る
+
+
+
 export const getAllArticles = async (): Promise<Article[]> => {
         // SSR（Server Side Rendering）
         // サーバー側でページを生成し、最新のデータを毎回取得して表示できる。
