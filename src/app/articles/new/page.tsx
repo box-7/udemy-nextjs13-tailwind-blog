@@ -1,5 +1,7 @@
 "use client";
-import { createArticle } from '@/blogAPI';
+
+// import { createArticle } from '@/blogAPI';
+
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 
@@ -15,7 +17,16 @@ const CreateBlogPage = () => {
 
                 setLoading(true);
                 // ここでフォームのデータを処理する
-                await createArticle(id, title, content);
+                const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
+                await fetch(`${API_URL}/api/create`, {
+                        method: "POST",
+                        headers: {
+                                "Content-Type": "application/json",
+                        },
+                body: JSON.stringify({ id, title, content }),
+                }
+                )
                 setLoading(false);
                 router.push("/");
                 router.refresh();
