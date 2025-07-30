@@ -1,9 +1,14 @@
 
 import { supabase } from "@/utils/supabaseClient";
-import { NextApiRequest, NextApiResponse } from "next";
+
+// NextApiRequest: リクエスト情報（body, query, methodなど）を持つ型
+// NextApiResponse: レスポンス（status, json, sendなど）を返すための型
+// import { NextApiRequest, NextApiResponse } from "next";
+
+// NextResponse は、Next.jsのApp Router（app/api ディレクトリ）でAPIレスポンスを返すためのクラス
 import { NextResponse } from "next/server";
 
-export async function GET(req: Request, res: NextApiResponse) {
+export async function GET() {
         const { data, error } = await supabase.from("posts").select("*");
 
         if (error) {
@@ -13,8 +18,12 @@ export async function GET(req: Request, res: NextApiResponse) {
         return NextResponse.json(data, { status: 200 });
 }
 
-export async function POST(req: Request, res: NextApiResponse) {
+// App Router（app/apiディレクトリ）では、res（ResponseやNextApiResponse）は使さない
+// 代わりに、NextResponse を使ってレスポンスを返す
+// export async function POST(req: Request, res: NextApiResponse) {
 
+// Requestは、Next.jsのApp Router（app/apiディレクトリ）でAPIルートに渡されるリクエストオブジェクト
+export async function POST(req: Request) {
         const { id, title, content } = await req.json();
 
         const { data, error } = await supabase
@@ -22,8 +31,8 @@ export async function POST(req: Request, res: NextApiResponse) {
                 .insert([{ id, title, content, createdAt: new Date().toISOString() }]);
 
         if (error) {
-                return res.status(500).json({ error: error.message });
+                return NextResponse.json({ error: error.message }, { status: 500 });
         }
 
-        return res.status(201).json(data);
+        return NextResponse.json(data, { status: 201 });
 }

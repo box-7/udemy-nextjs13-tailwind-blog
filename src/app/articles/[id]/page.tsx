@@ -20,9 +20,11 @@ const Article = async ({ params }: { params: { id: string } }) => {
         const res = await fetch(`${API_URL}/api/blog/${params.id}`,
                 { next: { revalidate: 60 } }
         );
+
         if (!res.ok) {
                 throw new Error("Failed to fetch articles");
         }
+
         const detailArticle = await res.json();
         return (
                 <div className="max-w-3xl mx-auto p-5">
